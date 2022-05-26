@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Собачка "Балбес"</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		
+		var score = 0;
+
+		function checkAnswer(inputId, answers) {
+			var userAnswer = document.getElementById(inputId).value;
+			userAnswer = userAnswer.toLowerCase();
+			for(var i = 0; i < answers.length; i++){
+				if(userAnswer == answers[i]){
+					score++;
+					break;
+				}
+			}
+		}
+
+		function checkAnswers() {
+
+			checkAnswer("userAnswer1", ["ветер"]);
+			checkAnswer("userAnswer2", ["яйца", "яйцо"]);
+			checkAnswer("userAnswer3", ["черепаха"]);
+
+		alert('Вы отгадали ' + score + ' загадки.');
+
+		}
+
+	</script>
+</head>
+
+<body>
+
+<div class="header">
+	<a class='header_text' href='index.html'>Главная</a>
+	<a class='header_text'>/</a>
+	<a class='header_text' href='riddle.html'>Загадки</a>
+	<a class='header_text'>/</a>
+	<a class='header_text' href='guess.html'>Угадайка</a>
+</div>
+			<div class="h1">
+			<p>Игра "Riddles"</p>
+			</div>
+
+			<div class='box'>
+
+				<p>Без голоса кричит, без крыльев — а летает, и безо рта свистит, и без зубов кусает. Что это?</p>
+				<input type='text' id='userAnswer1'>
+
+				<p>Без замка, без крышки сделан сундучок, а внутри хранится золота кусок. Что это?</p>
+				<input type='text' id='userAnswer2'>
+
+				<p>Кто на себе свой дом носит?</p>
+				<input type='text' id='userAnswer3'>
+
+				<br>
+				<div class='button'>
+				<a href="#" onClick="checkAnswers();">Ответить</a>
+				</div>
+			</div> 	
+
+		<div class="map_riddle">
+			<p>Карта сайта:</br>
+				<a href='#'>Главная</a>,
+				<a href='#'>Загадки</a>,
+				<a href='#'>Угадайка</a>
+			</p>
+		</div>
+
+<div class="footer">
+Copyright &copy; <script type="text/javascript"> //скрипт, который меняет текущий год автоматически
+		var CurrentYear = new Date().getFullYear()
+            document.write(CurrentYear);
+	</script> Artem Mikhalenia
+</div>
+
+</body>
+</html>
