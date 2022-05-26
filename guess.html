@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Собачка "Балбес"</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		
+		var answer = Math.round(Math.random() * 10);
+		var tryCount = 0;
+		var maxTryCount = 3;
+
+		function readInt(){
+			var number = document.getElementById('userAnswer').value;
+			return parseInt(number);
+		}
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}	
+
+		function hide(id){
+			document.getElementById(id).style.display = 'none';
+		}
+
+		function guess(){
+			tryCount++;
+
+			var userAnswer = readInt();
+			if(userAnswer == answer){
+				write("<b>Поздравляю, Вы угадали!</b> Правильный ответ: <b>" + answer);
+				hide('button');
+				hide('userAnswer');
+			} else if (tryCount >= maxTryCount){
+				write('Вы проиграли.<br> Правильный ответ: ' + answer);
+				hide('button');
+				hide('userAnswer');
+			} else if (userAnswer > answer){
+				write('Вы ввели слишком большое число!');
+			} else if (userAnswer < answer){
+				write('Вы ввели слишком маленькое число!');
+			}
+		}
+
+	</script>
+</head>
+<body>
+
+<div class="header">
+	<a class='header_text' href='index.html'>Главная</a>
+	<a class='header_text'>/</a>
+	<a class='header_text' href='riddle.html'>Загадки</a>
+	<a class='header_text'>/</a>
+	<a class='header_text' href='guess.html'>Угадайка</a>
+</div>
+
+			<div class="h1">
+			<p>Игра "Угадай число"</p>
+			</div>
+
+			<div class='box_guess'>
+
+				<p id='info'> Угадайте число от 0 до 10</p>
+				<input type='text' id='userAnswer'>
+				<br>
+				<div class='button'>
+				<a href="#" onClick="guess(); id='button'">Начать игру</a>
+				</div>
+			</div> 	
+
+		<div class="map_guess">
+			<p>Карта сайта:</br>
+				<a href='#'>Главная</a>,
+				<a href='#'>Загадки</a>,
+				<a href='#'>Угадайка</a>
+			</p>
+		</div>
+
+<div class="footer">
+Copyright &copy; <script type="text/javascript"> //скрипт, который меняет текущий год автоматически
+		var CurrentYear = new Date().getFullYear()
+            document.write(CurrentYear);
+	</script> Artem Mikhalenia
+</div>
+
+</body>
+</html>
